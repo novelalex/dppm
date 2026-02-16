@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -31,7 +32,8 @@ func main() {
 
 	ebiten.SetWindowSize(1280, 720)
 	ebiten.SetWindowResizingMode(ebiten.WindowResizingModeEnabled)
-	ebiten.SetWindowTitle(*file_path)
+	title := fmt.Sprintf("dppm: %s", *file_path)
+	ebiten.SetWindowTitle(title)
 	if err := ebiten.RunGame(&app); err != nil {
 		log.Fatal(err)
 	}
